@@ -16,7 +16,7 @@
 
 function addCmdToTable(_cmd) {
     if (!isset(_cmd)) {
-       var _cmd = {
+       _cmd = {
            configuration: {}
        };
     }

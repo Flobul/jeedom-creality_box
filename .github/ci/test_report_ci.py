@@ -35,7 +35,15 @@ class ReportCiTests(unittest.TestCase):
             "owner/repo", "123", "https://example/runs/123", "abcdef1234567890", jobs, []
         )
         self.assertIn("Aucune erreur ni alerte détectée", body)
+        self.assertIn("branche autorisée", body)
         self.assertFalse(report_ci.has_findings(jobs, []))
+
+    def test_report_runs_on_default_branch_and_beta_only(self):
+        workflow = (SCRIPT.parent.parent / "workflows" / "ci.yml").read_text(encoding="utf-8")
+        self.assertIn("github.event_name != 'pull_request'", workflow)
+        self.assertIn("github.event.repository.default_branch", workflow)
+        self.assertIn("github.ref == 'refs/heads/beta'", workflow)
+        self.assertIn("issues: write", workflow)
 
 
 if __name__ == "__main__":
