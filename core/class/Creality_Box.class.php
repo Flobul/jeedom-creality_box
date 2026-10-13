@@ -23,7 +23,7 @@ require_once __DIR__ . "/../../../../plugins/Creality_Box/3rdparty/telnet.php";
 class Creality_Box extends eqLogic
 {
     /*     * *************************Attributs****************************** */
-    public static $_pluginVersion = '0.91';
+    public static $_pluginVersion = '0.92.0';
     public static $_widgetPossibility = array('custom' => true);
 
     /*     * ***********************Methode statique*************************** */
@@ -203,6 +203,8 @@ class Creality_Box extends eqLogic
             $listen = config::byKey('listenport', __CLASS__);
             $id = config::byKey('id', __CLASS__);
             $pwd = config::byKey('password', __CLASS__);
+            $result = '';
+            $resp = '';
 
             $this->requestGet('http://' . $this->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get');
 
@@ -493,6 +495,7 @@ class Creality_BoxCmd extends cmd
     public function execute($_options = array())
     {
         $eqLogic = $this->getEqlogic();
+        $replace = array();
         log::add('Creality_Box', 'debug', __("Action sur ", __FILE__) . $this->getLogicalId());
 
         switch ($this->getSubType()) {
@@ -524,6 +527,8 @@ class Creality_BoxCmd extends cmd
                 $ipadr  = config::byKey('ip', 'Creality_Box');
                 $id     = config::byKey('id', 'Creality_Box');
                 $pwd    = config::byKey('password', 'Creality_Box');
+                $result = '';
+                $resp = '';
 
                 $telnet = new telnet_Creality_Box();
                 $connect = $telnet->telnetConnect($ipadr, $listen, $errno, $errstr);

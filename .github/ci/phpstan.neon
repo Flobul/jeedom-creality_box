@@ -8,6 +8,8 @@ parameters:
     - %currentWorkingDirectory%/jeedom-core/core/class
     - %currentWorkingDirectory%/jeedom-core/core/com
     - %currentWorkingDirectory%/jeedom-core/core/php
+  scanFiles:
+    - %currentWorkingDirectory%/3rdparty/telnet.php
   excludePaths:
     analyseAndScan:
       - %currentWorkingDirectory%/vendor (?)

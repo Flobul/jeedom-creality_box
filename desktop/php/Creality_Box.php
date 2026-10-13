@@ -51,16 +51,19 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			foreach ($eqLogics as $eqLogic) {
                 $hostname = $eqLogic->getConfiguration('hostname', __('Aucun', __FILE__));
                 $IP = $eqLogic->getConfiguration('IP', __('Aucune IP', __FILE__));
+                $displayName = htmlspecialchars($eqLogic->getName(), ENT_QUOTES, 'UTF-8');
+                $displayHostname = htmlspecialchars((string) $hostname, ENT_QUOTES, 'UTF-8');
+                $displayIP = htmlspecialchars((string) $IP, ENT_QUOTES, 'UTF-8');
 
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '" title="{{Nom}} : ' . $eqLogic->getName() . '</br>
-                      {{Nom d\'hôte}} : ' . $hostname . '</br>
-                      IP : ' . $IP . '">';
+				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '" data-title="{{Nom}} : ' . $displayName . '</br>
+                      {{Nom d\'hôte}} : ' . $displayHostname . '</br>
+                      IP : ' . $displayIP . '">';
 				echo '<img src="' . $eqLogic->getImage() . '"/>';
 				echo '<br>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '<span class="hiddenAsCard displayTableRight hidden">';
-				echo ($eqLogic->getIsVisible() == 1) ? '<i class="fas fa-eye" title="{{Equipement visible}}"></i>' : '<i class="fas fa-eye-slash" title="{{Equipement non visible}}"></i>';
+				echo ($eqLogic->getIsVisible() == 1) ? '<i class="fas fa-eye" data-title="{{Equipement visible}}"></i>' : '<i class="fas fa-eye-slash" data-title="{{Equipement non visible}}"></i>';
 				echo '</span>';
 				echo '</div>';
 			}

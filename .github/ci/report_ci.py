@@ -133,7 +133,7 @@ def render_report(repository: str, run_id: str, run_url: str, sha: str, jobs: li
 
     lines.extend([
         "",
-        "_Ce rapport est remplacé automatiquement à chaque exécution complète de la CI sur la branche par défaut._",
+        "_Ce rapport est remplacé automatiquement à chaque exécution complète de la CI sur une branche autorisée._",
     ])
     return "\n".join(lines) + "\n"
 
