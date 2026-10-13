@@ -21,12 +21,12 @@ try {
 	include_file('core', 'authentification', 'php');
 
 	if (!isConnect('admin')) {
-		throw new Exception('401 Unauthorized');
+		throw new Exception(__('401 - Accès non autorisé', __FILE__));
 	}
 
 	ajax::init();
 
-	throw new Exception('Aucune methode correspondante');
+	throw new Exception(__('Aucune méthode correspondante', __FILE__));
 	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
 	ajax::error(displayException($e), $e->getCode());

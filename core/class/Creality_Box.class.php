@@ -471,7 +471,7 @@ class Creality_Box extends eqLogic
                         }
                     }
                     if (!$foundSelect) {
-                        $listOption = '<option value="">Aucun</option>' . $listOption;
+                        $listOption = '<option value="">' . __('Aucun', __FILE__) . '</option>' . $listOption;
                     }
                     $replace['#cmd_' . $cmd->getLogicalId() . '_listValue#'] = $listOption;
                 }

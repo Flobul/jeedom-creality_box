@@ -1,0 +1,205 @@
+/**
+ * Creality Box — modal Santé.
+ */
+#crealityBoxHealth {
+    --creality-box-health-accent: #f36f21;
+    --creality-box-health-border: rgba(127, 127, 127, 0.22);
+    --creality-box-health-surface: rgba(255, 255, 255, 0.86);
+    box-sizing: border-box;
+    width: min(100%, 1320px);
+    margin: 0 auto;
+    padding: 10px 14px 24px;
+}
+
+#crealityBoxHealth .creality-box-health-hero {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 20px 24px;
+    border: 1px solid rgba(243, 111, 33, 0.28);
+    border-radius: 16px;
+    background: linear-gradient(125deg, #fffaf6 0%, #fbe8da 54%, #f36f21 100%);
+    box-shadow: 0 7px 20px rgba(90, 50, 25, 0.09);
+}
+
+#crealityBoxHealth .creality-box-health-hero-icon {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #b84915;
+    font-size: 23px;
+    box-shadow: 0 5px 14px rgba(90, 50, 25, 0.13);
+}
+
+#crealityBoxHealth .creality-box-health-eyebrow {
+    display: block;
+    margin-bottom: 3px;
+    color: #b84915;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#crealityBoxHealth .creality-box-health-hero h2 {
+    margin: 0 0 4px;
+    color: #482d20;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+#crealityBoxHealth .creality-box-health-hero p {
+    margin: 0;
+    color: #674839;
+    font-size: 13px;
+}
+
+#crealityBoxHealth .creality-box-health-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#crealityBoxHealth .creality-box-health-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--creality-box-health-border);
+    border-radius: 12px;
+    background: var(--creality-box-health-surface);
+    box-shadow: 0 4px 13px rgba(60, 45, 35, 0.06);
+}
+
+#crealityBoxHealth .creality-box-health-summary-icon {
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(243, 111, 33, 0.13);
+    color: var(--creality-box-health-accent);
+    font-size: 20px;
+}
+
+#crealityBoxHealth .creality-box-health-summary-card > div {
+    min-width: 0;
+}
+
+#crealityBoxHealth .creality-box-health-summary-card span:not(.creality-box-health-summary-icon),
+#crealityBoxHealth .creality-box-health-summary-card small {
+    display: block;
+    overflow: hidden;
+    color: rgba(45, 55, 65, 0.67);
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#crealityBoxHealth .creality-box-health-summary-card strong {
+    display: block;
+    margin: 2px 0;
+    font-size: 21px;
+    line-height: 1.05;
+}
+
+#crealityBoxHealth .creality-box-health-panel {
+    overflow: hidden;
+    border: 1px solid var(--creality-box-health-border);
+    border-radius: 13px;
+    background: var(--creality-box-health-surface);
+}
+
+#crealityBoxHealth .creality-box-health-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--creality-box-health-border);
+    background: linear-gradient(90deg, rgba(243, 111, 33, 0.11), rgba(243, 111, 33, 0.02));
+}
+
+#crealityBoxHealth .creality-box-health-panel-header i {
+    color: var(--creality-box-health-accent);
+    font-size: 16px;
+}
+
+#crealityBoxHealth .creality-box-health-panel-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 650;
+}
+
+#crealityBoxHealth .table-responsive {
+    margin: 0;
+    border: 0;
+}
+
+#crealityBoxHealth .table {
+    margin-bottom: 0;
+}
+
+#crealityBoxHealth .table th,
+#crealityBoxHealth .table td {
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+#crealityBoxHealth .label {
+    font-size: 11px;
+}
+
+#crealityBoxHealth .creality-box-health-disabled {
+    opacity: 0.55;
+}
+
+[data-theme="core2019_Dark"] #crealityBoxHealth {
+    --creality-box-health-border: rgba(255, 255, 255, 0.13);
+    --creality-box-health-surface: rgba(38, 43, 47, 0.9);
+}
+
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-hero {
+    border-color: rgba(243, 139, 78, 0.28);
+    background: linear-gradient(125deg, #302723 0%, #61402d 58%, #b84915 100%);
+}
+
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-eyebrow,
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-hero h2,
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-summary-card span:not(.creality-box-health-summary-icon),
+[data-theme="core2019_Dark"] #crealityBoxHealth .creality-box-health-summary-card small {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 1000px) {
+    #crealityBoxHealth .creality-box-health-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    #crealityBoxHealth {
+        padding: 6px;
+    }
+
+    #crealityBoxHealth .creality-box-health-hero {
+        padding: 16px;
+    }
+
+    #crealityBoxHealth .creality-box-health-summary {
+        grid-template-columns: 1fr;
+    }
+}

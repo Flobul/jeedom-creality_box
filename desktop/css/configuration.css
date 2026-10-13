@@ -1,0 +1,224 @@
+/**
+ * Creality Box — page de configuration.
+ */
+#configuration_plugin_creality_box {
+    --creality-box-accent: #f36f21;
+    --creality-box-accent-dark: #b84915;
+    --creality-box-border: rgba(127, 127, 127, 0.22);
+    --creality-box-surface: rgba(255, 255, 255, 0.86);
+    --creality-box-text-soft: rgba(45, 55, 65, 0.7);
+}
+
+#configuration_plugin_creality_box .creality-box-config-page {
+    box-sizing: border-box;
+    width: min(100%, 1320px);
+    margin: 0 auto;
+    padding: 10px 14px 28px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px 28px;
+    margin-bottom: 18px;
+    padding: 24px 28px;
+    overflow: hidden;
+    border: 1px solid rgba(243, 111, 33, 0.28);
+    border-radius: 18px;
+    background: linear-gradient(125deg, #fffaf6 0%, #fbe8da 54%, #f36f21 100%);
+    box-shadow: 0 8px 22px rgba(90, 50, 25, 0.1);
+}
+
+#configuration_plugin_creality_box .creality-box-config-identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+}
+
+#configuration_plugin_creality_box .creality-box-config-logo {
+    flex: 0 0 92px;
+    width: 92px;
+    height: 92px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#configuration_plugin_creality_box .creality-box-config-eyebrow {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--creality-box-accent-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+#configuration_plugin_creality_box .creality-box-config-hero h2 {
+    margin: 0 0 6px;
+    color: #482d20;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+#configuration_plugin_creality_box .creality-box-config-hero p {
+    max-width: 680px;
+    margin: 0;
+    color: #674839;
+    font-size: 14px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.84);
+    color: #563624;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+#configuration_plugin_creality_box .creality-box-config-links {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-links .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 0 !important;
+    border-radius: 8px;
+    color: #fff !important;
+}
+
+#configuration_plugin_creality_box .creality-box-config-link-documentation { background: #f36f21 !important; }
+#configuration_plugin_creality_box .creality-box-config-link-changelog { background: #73594c !important; }
+#configuration_plugin_creality_box .creality-box-config-link-community { background: #6250bb !important; }
+
+#configuration_plugin_creality_box .creality-box-config-card {
+    margin-top: 16px;
+    overflow: hidden;
+    border: 1px solid var(--creality-box-border);
+    border-radius: 14px;
+    background: var(--creality-box-surface);
+    box-shadow: 0 5px 16px rgba(60, 45, 35, 0.07);
+}
+
+#configuration_plugin_creality_box .creality-box-config-card-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--creality-box-border);
+    background: linear-gradient(90deg, rgba(243, 111, 33, 0.12), rgba(243, 111, 33, 0.025));
+}
+
+#configuration_plugin_creality_box .creality-box-config-card-header > i {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    background: var(--creality-box-accent);
+    color: #fff;
+    font-size: 18px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-card-header h3 {
+    margin: 0 0 3px;
+    font-size: 17px;
+    font-weight: 650;
+}
+
+#configuration_plugin_creality_box .creality-box-config-card-header p {
+    margin: 0;
+    color: var(--creality-box-text-soft);
+    font-size: 12px;
+}
+
+#configuration_plugin_creality_box .creality-box-config-card-body {
+    padding: 20px 18px 8px;
+}
+
+#configuration_plugin_creality_box .control-label {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box {
+    --creality-box-border: rgba(255, 255, 255, 0.13);
+    --creality-box-surface: rgba(38, 43, 47, 0.9);
+    --creality-box-text-soft: rgba(255, 255, 255, 0.66);
+}
+
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box .creality-box-config-hero {
+    border-color: rgba(243, 139, 78, 0.28);
+    background: linear-gradient(125deg, #302723 0%, #61402d 58%, #b84915 100%);
+}
+
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box .creality-box-config-eyebrow,
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box .creality-box-config-hero h2,
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box .creality-box-config-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="core2019_Dark"] #configuration_plugin_creality_box .creality-box-config-meta span {
+    border-color: rgba(255, 255, 255, 0.13);
+    background: rgba(20, 18, 17, 0.58);
+    color: rgba(255, 255, 255, 0.86);
+}
+
+@media (max-width: 900px) {
+    #configuration_plugin_creality_box .creality-box-config-hero {
+        grid-template-columns: 1fr;
+    }
+
+    #configuration_plugin_creality_box .creality-box-config-meta {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 560px) {
+    #configuration_plugin_creality_box .creality-box-config-page {
+        padding: 6px 6px 20px;
+    }
+
+    #configuration_plugin_creality_box .creality-box-config-hero {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    #configuration_plugin_creality_box .creality-box-config-logo {
+        flex-basis: 62px;
+        width: 62px;
+        height: 62px;
+        border-radius: 15px;
+    }
+
+    #configuration_plugin_creality_box .creality-box-config-hero h2 {
+        font-size: 23px;
+    }
+
+    #configuration_plugin_creality_box .creality-box-config-card-body {
+        padding: 16px 10px 5px;
+    }
+}

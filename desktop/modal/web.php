@@ -15,13 +15,13 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 if (!isConnect('admin')) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception(__('401 - Accès non autorisé', __FILE__));
 }
 
 if (init('ip') == '') {
-    throw new Exception('{{L\'adresse IP Creality Box ne peut être vide : }}' . init('op_id'));
+    throw new Exception(__('L\'adresse IP Creality Box ne peut être vide', __FILE__) . ' : ' . init('op_id'));
 }
-$ip = init('ip');
+$ip = htmlspecialchars((string) init('ip'), ENT_QUOTES, 'UTF-8');
 ?>
 
-<iframe src="http://<?php echo $ip; ?>" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" height="100%" width="100%">This page requires a frames-capable browser.</iframe>
+<iframe src="http://<?php echo $ip; ?>" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" height="100%" width="100%"><?php echo __('Cette page nécessite un navigateur prenant en charge les cadres intégrés.', __FILE__); ?></iframe>

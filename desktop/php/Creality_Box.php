@@ -1,12 +1,13 @@
 <?php
 if (!isConnect('admin')) {
-    throw new Exception('{{401 - Accès non autorisé}}');
+    throw new Exception(__('401 - Accès non autorisé', __FILE__));
 }
 $plugin = plugin::byId('Creality_Box');
 sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
 
 ?>
+<?php include_file('desktop', 'Creality_Box', 'css', 'Creality_Box'); ?>
 <div class="row row-overflow" id="div_creality_box">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
     <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
@@ -22,7 +23,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
         <span>{{Configuration}}</span>
       </div>
       <div class="cursor eqLogicAction logoSecondary" id="bt_healthcreality_Box">
-        <i class="fas fa-medkit"></i>
+        <i class="fas fa-heartbeat"></i>
         <br>
         <span>{{Santé}}</span>
       </div>
@@ -48,8 +49,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			// Liste des équipements du plugin
 			echo '<div class="eqLogicThumbnailContainer">';
 			foreach ($eqLogics as $eqLogic) {
-                $hostname = $eqLogic->getConfiguration('hostname', '{{Aucun}}');
-                $IP = $eqLogic->getConfiguration('IP','{{Aucune IP}}');
+                $hostname = $eqLogic->getConfiguration('hostname', __('Aucun', __FILE__));
+                $IP = $eqLogic->getConfiguration('IP', __('Aucune IP', __FILE__));
 
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '" title="{{Nom}} : ' . $eqLogic->getName() . '</br>
@@ -72,16 +73,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
   <div class="col-xs-12 eqLogic" style="display: none;">
     <div class="input-group pull-right" style="display:inline-flex">
       <span class="input-group-btn">
-        <a class="btn btn-default btn-sm eqLogicAction roundedLeft" data-action="configure"><i class="fa fa-cogs"></i> {{Configuration avancée}}</a>
+        <a class="btn btn-default btn-sm eqLogicAction roundedLeft" data-action="configure"><i class="fas fa-cogs"></i> {{Configuration avancée}}</a>
         <a class="btn btn-default btn-sm eqLogicAction" data-action="copy"><i class="fas fa-copy"></i> {{Dupliquer}}</a>
         <a class="btn btn-sm btn-success eqLogicAction" data-action="save"><i class="fas fa-check-circle"></i> {{Sauvegarder}}</a>
         <a class="btn btn-danger btn-sm eqLogicAction roundedRight" data-action="remove"><i class="fas fa-minus-circle"></i> {{Supprimer}}</a>
       </span>
     </div>
     <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fa fa-arrow-circle-left"></i></a></li>
+      <li role="presentation"><a href="#" class="eqLogicAction" aria-controls="home" role="tab" data-toggle="tab" data-action="returnToThumbnailDisplay"><i class="fas fa-arrow-circle-left"></i></a></li>
       <li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Équipement}}</a></li>
-      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> {{Commandes}}</a></li>
+      <li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Commandes}}</a></li>
     </ul>
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="eqlogictab">
@@ -147,7 +148,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
               <div class="form-group">
                 <label class="col-sm-3 control-label">{{Accès à la page web}}</label>
                 <div class="col-sm-3">
-                  <a class="btn btn-default  pull-left" id="bt_webcreality_Box"><i class="fa fa-cogs"></i> {{Interface web Creality_Box}}</a>
+                  <a class="btn btn-default  pull-left" id="bt_webcreality_Box"><i class="fas fa-cogs"></i> {{Interface web Creality_Box}}</a>
                 </div>
               </div>
             </div>
