@@ -1,4 +1,8 @@
 {
+    "plugins\/Creality_Box\/core\/ajax\/Creality_Box.ajax.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Aucune méthode correspondante": "No matching methods"
+    },
     "plugins\/Creality_Box\/core\/class\/Creality_Box.class.php": {
         " Erreur de connexion (vérifiez l\\'IP ou le port) : ": " Connection error (check IP or port) :",
         " Erreur de connexion (vérifiez l\\'identifiant) : ": " Connection error (check login) :",
@@ -8,6 +12,7 @@
         " vient d\\'être créé": " has just been created",
         "Action sur ": "Action on",
         "Arrêt du service Creality_Box": "Stop Creality_Box service",
+        "Aucun": "None",
         "Création de commande : ": "Create a command :",
         "Démarrage du cron ": "Start cron",
         "Démon Creality_Box_Daemon lancé": "Creality_Box_Daemon launched",
@@ -58,23 +63,39 @@
         "Modification en cours...": "Modification in progress..."
     },
     "plugins\/Creality_Box\/desktop\/modal\/health.php": {
+        "401 - Accès non autorisé": "401 - Unauthorized access",
+        "Actifs": "Assets",
         "Appareil": "Device",
+        "Appareils": "Devices",
+        "Aucun équipement Creality Box": "No Creality Box equipment",
         "Date création": "Creation date",
         "Dernière communication": "Last communication",
+        "Diagnostic du plugin": "Plugin Diagnostics",
         "Début impression": "Start printing",
         "IP": "IPs",
         "Impression en cours": "Printing in progress",
+        "Impressions": "Impressions",
+        "Joignables": "Contact Information",
         "NOK": "NOK",
         "NON": "NO",
         "Nom": "Name",
         "OK": "OK",
         "OUI": "YES",
         "Progression": "Progression",
-        "Statut": "Status"
+        "Résumé de la santé Creality Box": "Creality Box Health Summary",
+        "Santé Creality Box": "Health Creality Box",
+        "Statut": "Status",
+        "activé(s) dans Jeedom": "enabled in Jeedom",
+        "configuré(s)": "configured",
+        "en cours": "In progress",
+        "en erreur": "by mistake",
+        "Équipements": "Equipment",
+        "État des imprimantes, communications et impressions en cours.": "Printer status, communications, and print jobs in progress."
     },
     "plugins\/Creality_Box\/desktop\/modal\/web.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "L\\'adresse IP Creality Box ne peut être vide : ": "The Creality Box IP address cannot be empty:"
+        "Cette page nécessite un navigateur prenant en charge les cadres intégrés.": "This page requires a browser that supports inline frames.",
+        "L\\'adresse IP Creality Box ne peut être vide": "The Creality Box IP address cannot be empty"
     },
     "plugins\/Creality_Box\/desktop\/php\/Creality_Box.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
@@ -123,29 +144,27 @@
     },
     "plugins\/Creality_Box\/plugin_info\/configuration.php": {
         "Adresse IP de la Creality Box": "Creality Box IP address",
-        "Branche": "Branch",
-        "Configuration du cron": "Cron configuration",
-        "Configuration du démon": "Daemon configuration",
-        "Documentation complète du plugin": "Complete plugin documentation",
-        "Entrez l'adresse IP de la de la Creality Box.<\/br>": "Enter the IP address of the Creality Box.<\/br>",
-        "Entrez l'identifiant.": "Enter login.",
-        "Entrez le mot de passe.": "Enter password.",
+        "Changelog": "Changelog",
+        "Communauté": "Community",
+        "Configuration de la Creality Box": "Setting Up the Creality Box",
+        "Configuration du plugin": "Plugin configuration",
+        "Connectez votre Creality Box à Jeedom et configurez la récupération locale des informations d’impression.": "Connect your Creality Box to Jeedom and set up local retrieval of print information.",
+        "Documentation": "Documentation",
+        "Définissez la fréquence de récupération des informations de la Creality Box.": "Set the frequency at which information is retrieved from the Creality Box.",
+        "Entrez le mot de passe. Par défaut : cxswprin": "Enter the password. Default: cxswprin",
+        "Entrez l’adresse IP de la Creality Box.": "Enter the IP address of the Creality Box.",
+        "Entrez l’identifiant. Par défaut : root": "Enter the username. Default: root",
         "Fichier de log": "Log file",
-        "Fichier de log d'où seront récupérées les infos.": "Log file from which information will be retrieved.",
-        "Général": "Main",
+        "Fichier de log d’où seront récupérées les informations.": "Log file from which the information will be retrieved.",
         "Identifiant": "ID",
         "Intervalle de rafraîchissement des informations (cron)": "Information refresh interval (cron)",
         "Jamais": "Never",
-        "Les dernières actualités du plugin": "Latest plugin news",
-        "Les dernières discussions autour du plugin": "Latest discussions about the plugin",
         "Mot de passe": "Password",
-        "Par défaut": "Default",
-        "Pensez à mettre le tag": "Remember to tag",
-        "Port 23 sauf s'il a été modifié.": "Port 23 unless modified.",
+        "Port 23 sauf s’il a été modifié.": "Port 23, unless it has been changed.",
         "Port d'écoute Telnet": "Telnet listening port",
-        "Présentation du plugin": "Plugin presentation",
-        "Source": "Source",
-        "Sélectionnez l'intervalle auquel le plugin ira récupérer les informations sur les serveurs SmartThings.<br\/>Par défaut : 1 minute.": "Select the interval at which the plugin will fetch information from SmartThings servers.<br\/>Default: 1 minute.",
+        "Rafraîchissement": "Refresh",
+        "Renseignez l’accès Telnet et le fichier utilisé pour récupérer les informations d’impression.": "Enter the Telnet access information and the file used to retrieve print information.",
+        "Sélectionnez l’intervalle auquel le plugin récupère les informations. Par défaut : 1 minute.": "Select the interval at which the plugin retrieves information. Default: 1 minute.",
         "Toutes les 10 minutes": "Every 10 minutes",
         "Toutes les 15 minutes": "Every 15 minutes",
         "Toutes les 2 minutes": "Every 2 minutes",
@@ -156,8 +175,6 @@
         "Toutes les 5 minutes": "Every 5 minutes",
         "Toutes les heures": "Every hour",
         "Toutes les minutes": "Every minute",
-        "Version": "Version",
-        "et à fournir les log dans les balises préformatées": "and provide logs in pre-formatted tags",
-        "sur le community": "on the community"
+        "Version": "Version"
     }
 }

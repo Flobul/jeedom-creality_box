@@ -1,4 +1,8 @@
 {
+    "plugins\/Creality_Box\/core\/ajax\/Creality_Box.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Aucune méthode correspondante": "No hay ningún método correspondiente"
+    },
     "plugins\/Creality_Box\/core\/class\/Creality_Box.class.php": {
         " Erreur de connexion (vérifiez l\\'IP ou le port) : ": " Error de conexión (comprobar IP o puerto) :",
         " Erreur de connexion (vérifiez l\\'identifiant) : ": " Error de conexión (comprobar inicio de sesión) :",
@@ -8,6 +12,7 @@
         " vient d\\'être créé": " acaba de crearse",
         "Action sur ": "Acción sobre",
         "Arrêt du service Creality_Box": "Detención del servicio Creality_Box",
+        "Aucun": "Ninguno",
         "Création de commande : ": "Creación de pedidos :",
         "Démarrage du cron ": "Iniciar cron",
         "Démon Creality_Box_Daemon lancé": "Lanzamiento de Creality_Box_Daemon",
@@ -58,23 +63,39 @@
         "Modification en cours...": "Modificación en curso..."
     },
     "plugins\/Creality_Box\/desktop\/modal\/health.php": {
+        "401 - Accès non autorisé": "401 - Acceso no autorizado",
+        "Actifs": "Activos",
         "Appareil": "Dispositivo",
+        "Appareils": "Dispositivos",
+        "Aucun équipement Creality Box": "No hay ningún equipo Creality Box",
         "Date création": "Fecha de creación",
         "Dernière communication": "Última comunicación",
+        "Diagnostic du plugin": "Diagnóstico del complemento",
         "Début impression": "Empezar a imprimir",
         "IP": "IP",
         "Impression en cours": "Impresión en curso",
+        "Impressions": "Impresiones",
+        "Joignables": "Contacto",
         "NOK": "No está bien",
         "NON": "NO",
         "Nom": "Nombre",
         "OK": "Bueno",
         "OUI": "SÍ",
         "Progression": "Progresión",
-        "Statut": "Estado"
+        "Résumé de la santé Creality Box": "Resumen del estado de Creality Box",
+        "Santé Creality Box": "Health Creality Box",
+        "Statut": "Estado",
+        "activé(s) dans Jeedom": "activado(s) en Jeedom",
+        "configuré(s)": "configurado(s)",
+        "en cours": "En curso",
+        "en erreur": "por error",
+        "Équipements": "Equipos",
+        "État des imprimantes, communications et impressions en cours.": "Estado de las impresoras, comunicaciones e impresiones en curso."
     },
     "plugins\/Creality_Box\/desktop\/modal\/web.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "L\\'adresse IP Creality Box ne peut être vide : ": "La dirección IP del Creality Box no puede estar vacía:"
+        "Cette page nécessite un navigateur prenant en charge les cadres intégrés.": "Esta página requiere un navegador compatible con marcos integrados.",
+        "L\\'adresse IP Creality Box ne peut être vide": "La dirección IP de Creality Box no puede estar vacía"
     },
     "plugins\/Creality_Box\/desktop\/php\/Creality_Box.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
@@ -123,29 +144,27 @@
     },
     "plugins\/Creality_Box\/plugin_info\/configuration.php": {
         "Adresse IP de la Creality Box": "Dirección IP de Creality Box",
-        "Branche": "Rama",
-        "Configuration du cron": "Configuración Cron",
-        "Configuration du démon": "Configuración de demonios",
-        "Documentation complète du plugin": "Documentación completa del plugin",
-        "Entrez l'adresse IP de la de la Creality Box.<\/br>": "Introduzca la dirección IP del Creality Box.<\/br>",
-        "Entrez l'identifiant.": "Introduzca el identificador.",
-        "Entrez le mot de passe.": "Introduce la contraseña.",
+        "Changelog": "Cambios",
+        "Communauté": "Comunidad",
+        "Configuration de la Creality Box": "Configuración de la Creality Box",
+        "Configuration du plugin": "Configuración del complemento",
+        "Connectez votre Creality Box à Jeedom et configurez la récupération locale des informations d’impression.": "Conecta tu Creality Box a Jeedom y configura la recuperación local de la información de impresión.",
+        "Documentation": "Documentación",
+        "Définissez la fréquence de récupération des informations de la Creality Box.": "Establece la frecuencia con la que se recopila la información de la Creality Box.",
+        "Entrez le mot de passe. Par défaut : cxswprin": "Introduce la contraseña. Por defecto: cxswprin",
+        "Entrez l’adresse IP de la Creality Box.": "Introduce la dirección IP de la Creality Box.",
+        "Entrez l’identifiant. Par défaut : root": "Introduce el nombre de usuario. Por defecto: root",
         "Fichier de log": "Archivo de registro",
-        "Fichier de log d'où seront récupérées les infos.": "Archivo de registro del que se recuperará la información.",
-        "Général": "General",
+        "Fichier de log d’où seront récupérées les informations.": "Archivo de registro del que se extraerá la información.",
         "Identifiant": "IDENTIFICACIÓN",
         "Intervalle de rafraîchissement des informations (cron)": "Intervalo de actualización de la información (cron)",
         "Jamais": "Nunca",
-        "Les dernières actualités du plugin": "Últimas noticias sobre plugins",
-        "Les dernières discussions autour du plugin": "Últimos debates sobre el plugin",
         "Mot de passe": "Contraseña",
-        "Par défaut": "Por defecto",
-        "Pensez à mettre le tag": "Recuerde poner la etiqueta",
-        "Port 23 sauf s'il a été modifié.": "Puerto 23 a menos que se modifique.",
+        "Port 23 sauf s’il a été modifié.": "Puerto 23, salvo que se haya modificado.",
         "Port d'écoute Telnet": "Puerto de escucha Telnet",
-        "Présentation du plugin": "Presentación del plugin",
-        "Source": "Fuente",
-        "Sélectionnez l'intervalle auquel le plugin ira récupérer les informations sur les serveurs SmartThings.<br\/>Par défaut : 1 minute.": "Seleccione el intervalo en el que el plugin recuperará información de los servidores SmartThings.<br\/>Por defecto: 1 minuto.",
+        "Rafraîchissement": "Actualización",
+        "Renseignez l’accès Telnet et le fichier utilisé pour récupérer les informations d’impression.": "Introduce el acceso Telnet y el archivo utilizado para recuperar la información de impresión.",
+        "Sélectionnez l’intervalle auquel le plugin récupère les informations. Par défaut : 1 minute.": "Selecciona el intervalo en el que el complemento recoge la información. Por defecto: 1 minuto.",
         "Toutes les 10 minutes": "Cada 10 minutos",
         "Toutes les 15 minutes": "Cada 15 minutos",
         "Toutes les 2 minutes": "Cada 2 minutos",
@@ -156,8 +175,6 @@
         "Toutes les 5 minutes": "Cada 5 minutos",
         "Toutes les heures": "Cada hora",
         "Toutes les minutes": "Cada minuto",
-        "Version": "Versión",
-        "et à fournir les log dans les balises préformatées": "y suministrar registros en etiquetas preformateadas",
-        "sur le community": "en la comunidad"
+        "Version": "Versión"
     }
 }
