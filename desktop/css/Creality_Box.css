@@ -1,0 +1,33 @@
+/**
+ * CSS du plugin Creality Box — Desktop (page d'accueil).
+ *
+ * Référence : localhomeconnect (desktop/css/localhomeconnect.css)
+ * https://github.com/DomoFlo1/jeedom-localhomeconnect
+ *
+ * Styles pour la page d'accueil : panneaux, boutons d'action.
+ */
+
+/* Panel titles */
+.eqLogicThumbnailDisplay .panel-title {
+    background-color: #1987ea !important;
+    color: #fff !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* Logo primary color */
+.eqLogicThumbnailDisplay .logoPrimary i {
+    color: #1987ea !important;
+}
+
+/* Equipment card hover */
+.eqLogicDisplayCard.cursor:hover {
+    opacity: .65 !important;
+}
+
+/* Dark theme */
+[data-theme="core2019_Dark"] .eqLogicThumbnailDisplay .panel-title {
+    background-color: #1987ea !important;
+}
+[data-theme="core2019_Dark"] .eqLogicDisplayCard[style*="border-left"]:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}

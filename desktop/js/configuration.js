@@ -14,38 +14,105 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-   // attribuer le même niveau de log à tous les logs du plugin
-   $('#bt_savePluginLogConfig').off('click').on('click', function () {
-       // id du plugin
-       var plugin = $('#span_plugin_id').text();
-       // object du level des log du nom de l'id
-       var logPluginLevel = $('#div_plugin_log').getValues('.configKey')[0];
-       // string du level des log du nom de l'id
-       var logPluginLeveltoStr = JSON.stringify(logPluginLevel);
+document.querySelector('.bt_refreshPluginInfo').insertAdjacentHTML('afterend', '<a class="btn btn-success btn-sm" target="_blank" href="https://market.jeedom.com/index.php?v=d&p=market_display&id=4217"><i class="fas fa-comment-dots "></i> Donner mon avis</a>');
 
-       // liste de tous les log de l'id du plugin
-       $('.bt_plugin_conf_view_log').each(function () {
-           // remplacer log::level::Creality_Box par log::level::Optooma_Daemon
-           logPluginLeveltoStr = logPluginLeveltoStr.replace("log::level::" + plugin, "log::level::" + $(this).attr('data-log'));
-           // converti en objet
-           newLogPluginLevel = JSON.parse(logPluginLeveltoStr);
-           // save dans la config jeedom
-           jeedom.config.save({
-               configuration: newLogPluginLevel,
-               error: function(error) {
-                   alert_div_plugin_configuration.showAlert({message: error.message, level: 'danger'})
-               },
-               success: function() {
-                   alert_div_plugin_configuration.showAlert({message: '{{Sauvegarde de la configuration des logs dev effectuée}}', level: 'success'})
-                   modifyWithoutSave = false
-               }
-           });
-       });
-   });
+function printPluginConfiguration() {
+    var divPluginLGConfiguration = document.getElementById('configuration_plugin_creality_box');
+    var btnSavePluginConfig = document.getElementById('bt_savePluginConfig');
+    var configInputs = divPluginLGConfiguration?.querySelectorAll('.configKey');
+    var modificationCount = 0;
+    var initialValues = new Map();
+    var baselineReady = false;
+    var modificationMessage = document.createElement('i');
+    modificationMessage.classList.add('modificationWithoutSave', 'label', 'label-warning', 'pull-right');
+    modificationMessage.innerHTML = '{{Modification en cours...}}';
+    modificationMessage.unseen();
+    btnSavePluginConfig.parentNode.insertBefore(modificationMessage, btnSavePluginConfig.nextSibling);
 
-   // afficher juste avant la version, la véritable version contenue dans le plugin
-   var dateVersion = $("#span_plugin_install_date").html();
-   $("#span_plugin_install_date").empty().append("v" + version + " (" + dateVersion + ")");
+    function resetStyle(element) {
+        element.style.setProperty('background-color', '', 'important');
+        element.style.setProperty('color', '', 'important');
+    }
 
+    function setModifiedStyle(element) {
+        element.style.setProperty('background-color', 'var(--al-warning-color)', 'important');
+        element.style.setProperty('color', 'var(--sc-lightTxt-color)', 'important');
+    }
 
-   $('.bt_refreshPluginInfo').after('<a class="btn btn-success btn-sm" target="_blank" href="https://market.jeedom.com/index.php?v=d&p=market_display&id=4099"><i class="fas fa-comment-dots "></i> Donner mon avis</a>');
+    function updateModificationStatus() {
+        if (modificationCount > 0) {
+            modificationMessage.seen();
+        } else {
+            modificationMessage.unseen();
+        }
+    }
+
+    window.setTimeout(function () {
+        configInputs?.forEach(function (input) {
+            resetStyle(input);
+            initialValues.set(input, input.type === 'checkbox' ? input.checked : input.value);
+        });
+        baselineReady = true;
+    }, 500);
+
+    configInputs?.forEach(function (input) {
+        if (input.type === 'checkbox') {
+            input.addEventListener('change', function() {
+                if (!baselineReady) return;
+                const initialValue = initialValues.get(this);
+                const isModified = this.checked !== initialValue;
+
+                if (isModified && !this.hasAttribute('data-modified')) {
+                    setModifiedStyle(this);
+                    this.setAttribute('data-modified', '');
+                    modificationCount++;
+                } else if (!isModified && this.hasAttribute('data-modified')) {
+                    resetStyle(this);
+                    this.removeAttribute('data-modified');
+                    modificationCount--;
+                }
+                updateModificationStatus();
+            });
+        } else {
+            const eventType = input.nodeName === 'SELECT' ? 'change' : 'input';
+            input.addEventListener(eventType, function() {
+                if (!baselineReady) return;
+                const initialValue = initialValues.get(this);
+                const isModified = this.value !== initialValue;
+
+                if (isModified && !this.hasAttribute('data-modified')) {
+                    setModifiedStyle(this);
+                    this.setAttribute('data-modified', '');
+                    modificationCount++;
+                } else if (!isModified && this.hasAttribute('data-modified')) {
+                    resetStyle(this);
+                    this.removeAttribute('data-modified');
+                    modificationCount--;
+                }
+                updateModificationStatus();
+            });
+        }
+    });
+
+    btnSavePluginConfig.addEventListener('click', function() {
+        configInputs.forEach(input => {
+            if (input.type === 'checkbox') {
+                initialValues.set(input, input.checked);
+            } else {
+                initialValues.set(input, input.value);
+            }
+            resetStyle(input);
+            input.removeAttribute('data-modified');
+        });
+        modificationCount = 0;
+        modificationMessage.unseen();
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", printPluginConfiguration);
+} else {
+    setTimeout(function() {
+        printPluginConfiguration();
+    }, 100);
+}
