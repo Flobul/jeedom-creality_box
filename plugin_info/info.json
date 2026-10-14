@@ -20,6 +20,8 @@
 	"maxDependancyInstallTime": 0,
 	"changelog": "https://flobul-domotique.fr/liste-des-versions-du-plugin-creality-box-pour-jeedom/",
 	"documentation": "https://flobul-domotique.fr/documentation-du-plugin-creality-box-pour-jeedom/",
+	"changelog_beta": "https://flobul-domotique.fr/liste-des-versions-du-plugin-creality-box-pour-jeedom/",
+	"documentation_beta": "https://flobul-domotique.fr/documentation-du-plugin-creality-box-pour-jeedom/",
 	"link": {
 		"forum": "https://community.jeedom.com/tag/plugin-creality_box"
 	},
