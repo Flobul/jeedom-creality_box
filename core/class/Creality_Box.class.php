@@ -206,7 +206,9 @@ class Creality_Box extends eqLogic
             $result = '';
             $resp = '';
 
-            $this->requestGet('http://' . $this->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get');
+            if (!$this->requestGet('http://' . $this->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get')) {
+                return;
+            }
 
             $telnet = new telnet_Creality_Box();
             $connect = $telnet->telnetConnect($ipadr, $listen, $errno, $errstr);
@@ -273,7 +275,10 @@ class Creality_Box extends eqLogic
                         foreach ($eqLogics as $eqLogic) {
                             if ($eqLogic->getIsEnable()) {
                                 $time_start = microtime(true);
-                                $eqLogic->requestGet('http://' . $eqLogic->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get');
+                                if (!$eqLogic->requestGet('http://' . $eqLogic->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get')) {
+                                    log::add(__CLASS__, 'warning', __('Échec de la requête vers : ', __FILE__) . $eqLogic->getConfiguration('IP'));
+                                    continue;
+                                }
                                 $time_end = microtime(true);
                                 $time = round($time_end - $time_start, 2);
                                 log::add(__CLASS__, 'info', __FUNCTION__ . ' : ' . __('Fin du cron équipement ', __FILE__) . $eqLogic->getName() . ' en ' . $time . ' secondes');
@@ -295,7 +300,12 @@ class Creality_Box extends eqLogic
     public function requestGet($_url)
     {
         $request_http = new com_http($_url);
+        $request_http->setTimeout(10);
         $result = $request_http->exec();
+        if ($result === false) {
+            log::add(__CLASS__, 'warning', __('Échec de la requête HTTP vers : ', __FILE__) . $_url);
+            return false;
+        }
         $array = json_decode($result, true);
         if (is_array($array)) {
         log::add(__CLASS__, 'debug', 'TETTT ' . json_encode($array));
@@ -315,7 +325,7 @@ class Creality_Box extends eqLogic
             }
         }
         log::add(__CLASS__, 'debug', 'TETTT2 ' . $this->getConfiguration('modelVersion'));
-//{ "opt": "main", "fname": "Info", "function": "get", "wanmode": "DHCP", "wanphy_link": 1, "link_status": 1, "wanip": "192.168.23.241", "ssid": "CXSWBox-FCEEE6007F34", "channel": 6, "security": 1, "wifipasswd": "12345678", "apclissid": "", "iot_type": "tb", "connect": 1, "model": "Ender-3 V2 ", "fan": 0, "nozzleTemp": 23, "bedTemp": 24, "_1st_nozzleTemp": 0, "_2nd_nozzleTemp": 0, "chamberTemp": 0, "nozzleTemp2": 0, "bedTemp2": 0, "_1st_nozzleTemp2": 0, "_2nd_nozzleTemp2": 0, "chamberTemp2": 0, "print": "localhost", "printProgress": 0, "stop": 0, "printStartTime": "0", "state": 4, "err": 1, "boxVersion": "V3.04b06", "upgrade": "", "upgradeStatus": 0, "tfCard": 1, "dProgress": 0, "layer": 0, "pause": 0, "reboot": 0, "video": 1, "DIDString": "", "APILicense": "", "InitString": "", "printedTimes": 0, "timesLeftToPrint": 0, "ownerId": "C", "curFeedratePct": 100, "curPosition": "X:5.00 Y:20.00 Z:0.30", "autohome": 2, "repoPlrStatus": 0, "modelVersion": "printer hw ver:unknow;printer sw ver:Marlin E3V2-2.0.x-17-Smith3D.M (Mar 18 2021 13:23:44);DWIN hw ver:unknow;DWIN sw ver:unknow;", "mcu_is_print": 0, "printLeftTime": 50, "printJobTime": 213, "netIP": "192.168.23.241", "FilamentType": "", "ConsumablesLen": "", "TotalLayer": 0, "led_state": 0, "error": 0 }
+        return true;
 
     }
 
@@ -558,7 +568,9 @@ class Creality_BoxCmd extends cmd
                 }
                 break;
             case 'refresh':
-                $eqLogic->requestGet('http://' . $eqLogic->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get');
+                if (!$eqLogic->requestGet('http://' . $eqLogic->getConfiguration('IP') . ':81/protocal.csp?fname=Info&opt=main&function=get')) {
+                    log::add('Creality_Box', 'warning', __('Échec de la requête de rafraîchissement HTTP vers : ', __FILE__) . $eqLogic->getConfiguration('IP'));
+                }
                 break;
             case 'autohome::set':
             case 'stop::set':
