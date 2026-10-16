@@ -32,7 +32,10 @@
         "Le port n\\'est pas configuré.": "Le port n\\'est pas configuré.",
         "Tableau incorrect : ": "Tableau incorrect : ",
         "Veuillez vérifier la configuration": "Veuillez vérifier la configuration",
-        "fin": "fin"
+        "fin": "fin",
+        "Échec de la requête HTTP vers : ": "Échec de la requête HTTP vers : ",
+        "Échec de la requête de rafraîchissement HTTP vers : ": "Échec de la requête de rafraîchissement HTTP vers : ",
+        "Échec de la requête vers : ": "Échec de la requête vers : "
     },
     "plugins\/Creality_Box\/core\/template\/dashboard\/Creality_Box.template.html": {
         "Date de collecte": "Date de collecte",
