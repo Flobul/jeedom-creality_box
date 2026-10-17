@@ -300,8 +300,7 @@ class Creality_Box extends eqLogic
     public function requestGet($_url)
     {
         $request_http = new com_http($_url);
-        $request_http->setTimeout(10);
-        $result = $request_http->exec();
+        $result = $request_http->exec(10);
         if ($result === false) {
             log::add(__CLASS__, 'warning', __('Échec de la requête HTTP vers : ', __FILE__) . $_url);
             return false;
