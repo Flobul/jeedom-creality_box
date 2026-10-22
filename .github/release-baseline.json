@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "plugin_id": "Creality_Box",
+  "class_file": "core/class/Creality_Box.class.php",
+  "reference_version": "0.92.0",
+  "reference_commit": "37ef5bbd0289c4ec9a0520e012b247c23c11e60d"
+}
