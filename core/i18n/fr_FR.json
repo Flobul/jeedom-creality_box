@@ -16,12 +16,14 @@
         "Création de commande : ": "Création de commande : ",
         "Démarrage du cron ": "Démarrage du cron ",
         "Démon Creality_Box_Daemon lancé": "Démon Creality_Box_Daemon lancé",
+        "Désactivé": "Désactivé",
         "Erreur : ": "Erreur : ",
         "Expression cron non valide : ": "Expression cron non valide : ",
         "Fichier introuvable : ": "Fichier introuvable : ",
         "Fin du cron $contents ": "Fin du cron $contents ",
         "Fin du cron équipement ": "Fin du cron équipement ",
         "Impossible de lancer le démon Creality_Box_Daemon": "Impossible de lancer le démon Creality_Box_Daemon",
+        "Inconnu": "Inconnu",
         "Information": "Information",
         "JSON invalide : ": "JSON invalide : ",
         "L\\'équipement ": "L\\'équipement ",
@@ -30,12 +32,16 @@
         "Lancer l'impression": "Lancer l'impression",
         "Le message et le sujet ne peuvent pas être vide": "Le message et le sujet ne peuvent pas être vide",
         "Le port n\\'est pas configuré.": "Le port n\\'est pas configuré.",
+        "Oui": "Oui",
+        "Port d’écoute configuré": "Port d’écoute configuré",
+        "Rafraîchissement": "Rafraîchissement",
         "Tableau incorrect : ": "Tableau incorrect : ",
         "Veuillez vérifier la configuration": "Veuillez vérifier la configuration",
         "fin": "fin",
         "Échec de la requête HTTP vers : ": "Échec de la requête HTTP vers : ",
         "Échec de la requête de rafraîchissement HTTP vers : ": "Échec de la requête de rafraîchissement HTTP vers : ",
-        "Échec de la requête vers : ": "Échec de la requête vers : "
+        "Échec de la requête vers : ": "Échec de la requête vers : ",
+        "Équipements configurés": "Équipements configurés"
     },
     "plugins\/Creality_Box\/core\/template\/dashboard\/Creality_Box.template.html": {
         "Date de collecte": "Date de collecte",
@@ -61,6 +67,15 @@
         "Tester": "Tester",
         "Unité": "Unité",
         "Valeur de l\\'information": "Valeur de l\\'information"
+    },
+    "plugins\/Creality_Box\/desktop\/js\/community.js": {
+        "Aucun diagnostic disponible.": "Aucun diagnostic disponible.",
+        "Identifiant du plugin indisponible.": "Identifiant du plugin indisponible.",
+        "Impossible de préparer le sujet Community. Réessayez ultérieurement.": "Impossible de préparer le sujet Community. Réessayez ultérieurement.",
+        "Impossible d’afficher l’aperçu du diagnostic Community.": "Impossible d’afficher l’aperçu du diagnostic Community.",
+        "Inclure le diagnostic facultatif du plugin": "Inclure le diagnostic facultatif du plugin",
+        "La réponse Community reçue est invalide.": "La réponse Community reçue est invalide.",
+        "Le sujet Community peut être public. Vérifiez les informations ci-dessous avant de continuer.": "Le sujet Community peut être public. Vérifiez les informations ci-dessous avant de continuer."
     },
     "plugins\/Creality_Box\/desktop\/js\/configuration.js": {
         "Modification en cours...": "Modification en cours..."
@@ -113,8 +128,10 @@
         "Catégorie": "Catégorie",
         "Cocher la case pour utiliser le widget associé au type de l'appareil.": "Cocher la case pour utiliser le widget associé au type de l'appareil.",
         "Commandes": "Commandes",
+        "Community": "Community",
         "Configuration": "Configuration",
         "Configuration avancée": "Configuration avancée",
+        "Créer un sujet d'assistance sur Community Jeedom": "Créer un sujet d'assistance sur Community Jeedom",
         "Documentation": "Documentation",
         "Dupliquer": "Dupliquer",
         "Equipement non visible": "Equipement non visible",

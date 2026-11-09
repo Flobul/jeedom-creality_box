@@ -16,12 +16,14 @@
         "Création de commande : ": "Criação de encomendas :",
         "Démarrage du cron ": "Iniciar o cron",
         "Démon Creality_Box_Daemon lancé": "Lançamento da Creality_Box_Daemon",
+        "Désactivé": "Desactivado",
         "Erreur : ": "Erro :",
         "Expression cron non valide : ": "Expressão cron inválida :",
         "Fichier introuvable : ": "Ficheiro não encontrado :",
         "Fin du cron $contents ": "Fim do cron $contents",
         "Fin du cron équipement ": "Fim do cron do equipamento",
         "Impossible de lancer le démon Creality_Box_Daemon": "Não é possível iniciar o Creality_Box_Daemon",
+        "Inconnu": "Desconhecido",
         "Information": "Informação",
         "JSON invalide : ": "JSON inválido :",
         "L\\'équipement ": "Equipamento",
@@ -30,12 +32,16 @@
         "Lancer l'impression": "Iniciar a impressão",
         "Le message et le sujet ne peuvent pas être vide": "A mensagem e o assunto não podem estar vazios",
         "Le port n\\'est pas configuré.": "A porta não está configurada.",
+        "Oui": "Sim",
+        "Port d’écoute configuré": "Porta de escuta configurada",
+        "Rafraîchissement": "Atualização",
         "Tableau incorrect : ": "Tabela incorrecta :",
         "Veuillez vérifier la configuration": "Verificar a configuração",
         "fin": "final",
         "Échec de la requête HTTP vers : ": "Falha na solicitação HTTP para: ",
         "Échec de la requête de rafraîchissement HTTP vers : ": "Falha na solicitação HTTP de atualização para: ",
-        "Échec de la requête vers : ": "Falha na solicitação para: "
+        "Échec de la requête vers : ": "Falha na solicitação para: ",
+        "Équipements configurés": "Equipamentos configurados"
     },
     "plugins\/Creality_Box\/core\/template\/dashboard\/Creality_Box.template.html": {
         "Date de collecte": "Data de coleta",
@@ -61,6 +67,15 @@
         "Tester": "Testar",
         "Unité": "Unidade",
         "Valeur de l\\'information": "Valor da informação"
+    },
+    "plugins\/Creality_Box\/desktop\/js\/community.js": {
+        "Aucun diagnostic disponible.": "Não há nenhum diagnóstico disponível.",
+        "Identifiant du plugin indisponible.": "O identificador do plugin não está disponível.",
+        "Impossible de préparer le sujet Community. Réessayez ultérieurement.": "Não foi possível preparar o tópico «Community». Tente novamente mais tarde.",
+        "Impossible d’afficher l’aperçu du diagnostic Community.": "Não é possível apresentar a pré-visualização do diagnóstico da Comunidade.",
+        "Inclure le diagnostic facultatif du plugin": "Incluir o diagnóstico opcional do plugin",
+        "La réponse Community reçue est invalide.": "A resposta recebida da Comunidade não é válida.",
+        "Le sujet Community peut être public. Vérifiez les informations ci-dessous avant de continuer.": "O tópico «Community» pode ser público. Verifique as informações abaixo antes de continuar."
     },
     "plugins\/Creality_Box\/desktop\/js\/configuration.js": {
         "Modification en cours...": "Modificação em curso..."
@@ -113,8 +128,10 @@
         "Catégorie": "Categoria",
         "Cocher la case pour utiliser le widget associé au type de l'appareil.": "Assinale a caixa para utilizar o widget associado ao tipo de dispositivo.",
         "Commandes": "Comandos",
+        "Community": "Comunidade",
         "Configuration": "Configuração",
         "Configuration avancée": "Configuração avançada",
+        "Créer un sujet d'assistance sur Community Jeedom": "Criar um tópico de assistência na Comunidade Jeedom",
         "Documentation": "Documentação",
         "Dupliquer": "Duplicar",
         "Equipement non visible": "Equipamento não visível",
