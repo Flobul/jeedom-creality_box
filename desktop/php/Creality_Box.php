@@ -11,7 +11,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 <div class="row row-overflow" id="div_creality_box">
   <div class="col-xs-12 eqLogicThumbnailDisplay">
     <legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
-    <div class="eqLogicThumbnailContainer">
+    <div class="eqLogicThumbnailContainer Creality_Box-management">
+            <div class="Creality_Box-management-group Creality_Box-management-actions">
       <div class="cursor eqLogicAction logoPrimary" data-action="add">
         <i class="fas fa-plus-circle"></i>
         <br>
@@ -33,6 +34,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
         <span>{{Documentation}}</span>
       </div>
     </div>
+            <?php if (version_compare((string) jeedom::version(), '4.4.0', '>=')) { ?>
+            <div class="Creality_Box-management-group Creality_Box-management-community">
+                <div class="cursor eqLogicAction logoSecondary" data-action="createCommunityPost" data-plugin_id="Creality_Box" role="button" tabindex="0" aria-label="{{Créer un sujet d'assistance sur Community Jeedom}}">
+                    <i class="fas fa-comments"></i><br>
+                    <span style="color:var(--txt-color)">{{Community}}</span>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
     <legend><i class="fas fa-photo-video"></i> {{Ma box Creality}}</legend>
 		<?php
 		if (count($eqLogics) == 0) {
@@ -246,3 +256,4 @@ $eqLogics = eqLogic::byType($plugin->getId());
 include_file('desktop', 'Creality_Box', 'js', 'Creality_Box');
 include_file('core', 'plugin.template', 'js');
 ?>
+<?php include_file('desktop', 'community', 'js', 'Creality_Box'); ?>

@@ -23,7 +23,7 @@ require_once __DIR__ . "/../../../../plugins/Creality_Box/3rdparty/telnet.php";
 class Creality_Box extends eqLogic
 {
     /*     * *************************Attributs****************************** */
-    public static $_pluginVersion = '0.92.0';
+    public static $_pluginVersion = '0.93.0';
     public static $_widgetPossibility = array('custom' => true);
 
     /*     * ***********************Methode statique*************************** */
@@ -585,4 +585,42 @@ class Creality_BoxCmd extends cmd
                 break;
           }
     }
+
+    public static function getConfigForCommunity($_separator = '<br>')
+    {
+        if (!is_string($_separator) || !in_array($_separator, array('<br>', '<br/>', '<br />', "\n"), true)) {
+            $_separator = '<br>';
+        }
+        $unknown = __('Inconnu', __FILE__);
+        $isTrue = static function ($value) { return in_array($value, array(true, 1, '1'), true); };
+        $isFalse = static function ($value) { return in_array($value, array(false, 0, '0'), true); };
+        $integer = static function ($value, $min, $max) {
+            if ((!is_int($value) && !is_string($value)) || preg_match('/^[0-9]{1,10}$/D', (string) $value) !== 1) {
+                return null;
+            }
+            $number = (int) $value;
+            return $number >= $min && $number <= $max ? $number : null;
+        };
+        $present = static function ($value) { return is_string($value) && trim($value) !== ''; };
+        $format = static function ($value, $kind, $args = array()) use ($unknown, $integer) {
+            switch ($kind) {
+                case 'port':
+                    return $integer($value, 1, 65535) === null ? $unknown : __('Oui', __FILE__);
+                case 'schedule':
+                    if (!is_string($value)) { return $unknown; }
+                    if ($value === '' || $value === 'never') { return __('Désactivé', __FILE__); }
+                    $schedules = array('* * * * *' => '1 min', '*/2 * * * *' => '2 min', '*/5 * * * *' => '5 min', '*/10 * * * *' => '10 min', '*/15 * * * *' => '15 min', '*/30 * * * *' => '30 min', '0 * * * *' => '1 h', '0 0 * * *' => '24 h');
+                    return isset($schedules[$value]) ? $schedules[$value] : $unknown;
+            }
+            return $unknown;
+        };
+        $equipments = eqLogic::byType(__CLASS__);
+        $equipments = is_array($equipments) ? $equipments : array();
+        $lines = array('<!-- JEEDOM_PLUGIN_DIAGNOSTICS_START -->', __('Équipements configurés', __FILE__) . ' : ' . count($equipments));
+        $lines[] = __('Port d’écoute configuré', __FILE__) . ' : ' . $format(config::byKey('listenport', __CLASS__, ''), 'port', array());
+        $lines[] = __('Rafraîchissement', __FILE__) . ' : ' . $format(config::byKey('autorefresh', __CLASS__, ''), 'schedule', array());
+        $lines[] = '<!-- JEEDOM_PLUGIN_DIAGNOSTICS_END -->';
+        return implode($_separator, $lines) . $_separator;
+    }
+
 }
