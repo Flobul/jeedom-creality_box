@@ -42,7 +42,7 @@ class ReleaseWorkflowTests(unittest.TestCase):
         self.assertIn("CENTRAL_DISPATCH_TOKEN", text)
         self.assertIn("repos/Flobul/.jeedom/dispatches", text)
         self.assertIn('"folder": "jeedom-creality_box"', text)
-        self.assertIn("actions/upload-artifact@v6", text)
+        self.assertIn("actions/upload-artifact@v7", text)
         self.assertNotIn("pull_request_target", text)
 
     def test_release_baseline_matches_reference_0_92_0_commit(self):
